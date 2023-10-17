@@ -1,7 +1,7 @@
 #include "delta.lp".
 
-#show sp/2.
-#show ep/2.
+#show lp/2.
+#show hp/2.
 #show change/4.
 
 % (a) <--(+)--(c)
@@ -17,4 +17,5 @@ span(c).
 
 influence(a,b,pos).
 influence(a,c,pos).
-sp(b, increasing).
+lp(b, increasing).
+hp(b, increasing).
