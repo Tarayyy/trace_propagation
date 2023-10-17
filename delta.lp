@@ -14,11 +14,11 @@
 
 % Actual --------------------------------------------------------------------------------------------------------------------------------------------
 
-n_inc(a, sp, N) :- span(a), POS_INC = #count{B: influence(a, B, pos), sp(B, increasing)}, NEG_DEC = #count{B: influence(a, B, neg), sp(B, decreasing)}, N = POS_INC + NEG_DEC.
-n_inc(a, ep, N) :- span(a), POS_INC = #count{B: influence(a, B, pos), ep(B, increasing)}, NEG_DEC = #count{B: influence(a, B, neg), ep(B, decreasing)}, N = POS_INC + NEG_DEC.
+n_inc(A, sp, N) :- span(A), POS_INC = #count{B: influence(A, B, pos), sp(B, increasing)}, NEG_DEC = #count{B: influence(A, B, neg), sp(B, decreasing)}, N = POS_INC + NEG_DEC.
+n_inc(A, ep, N) :- span(A), POS_INC = #count{B: influence(A, B, pos), ep(B, increasing)}, NEG_DEC = #count{B: influence(A, B, neg), ep(B, decreasing)}, N = POS_INC + NEG_DEC.
 
-n_dec(a, sp, N) :- span(a), POS_DEC = #count{B: influence(a, B, pos), sp(B, decreasing)}, NEG_INC = #count{B: influence(a, B, neg), sp(B, increasing)}, N = POS_DEC + NEG_INC.
-n_dec(a, ep, N) :- span(a), POS_DEC = #count{B: influence(a, B, pos), ep(B, decreasing)}, NEG_INC = #count{B: influence(a, B, neg), ep(B, increasing)}, N = POS_DEC + NEG_INC.
+n_dec(A, sp, N) :- span(A), POS_DEC = #count{B: influence(A, B, pos), sp(B, decreasing)}, NEG_INC = #count{B: influence(A, B, neg), sp(B, increasing)}, N = POS_DEC + NEG_INC.
+n_dec(A, ep, N) :- span(A), POS_DEC = #count{B: influence(A, B, pos), ep(B, decreasing)}, NEG_INC = #count{B: influence(A, B, neg), ep(B, increasing)}, N = POS_DEC + NEG_INC.
 
 % n_inc > 0 && n_dec = 0 => +
 sp(A, increasing) :- n_inc(A, sp, X), X > 0, n_dec(A, sp, 0).
